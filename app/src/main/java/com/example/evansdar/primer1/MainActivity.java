@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
     public void onClickToAgenda(View v){
         System.out.println("agenda");
 
-        // Intent iA = new Intent(this, AgendaEvent.class);
-        // startActivity(iA);
+         Intent iA = new Intent(this, AgendaActivity.class);
+         startActivity(iA);
     }
 
     public void onClickToAttendees(View v){

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">primer1</string>
+    <string name="title_activity_agenda">AgendaActivity</string>
 </resources>
