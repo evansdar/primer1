@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">primer1</string>
     <string name="title_activity_agenda">AgendaActivity</string>
+    <string name="title_activity_presentation_slides">PresentationSlidesActivity</string>
 </resources>

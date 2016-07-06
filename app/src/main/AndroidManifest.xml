@@ -18,6 +18,10 @@
         <activity
             android:name=".AgendaActivity"
             android:label="@string/title_activity_agenda"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".PresentationSlidesActivity"
+            android:label="@string/title_activity_presentation_slides"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

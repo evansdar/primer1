@@ -55,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickToPPTs(View v){
-        //Intent iA = new Intent(this,PresentationSlidesActivity.class);
-        // startActivity(iA);
+        Intent iA = new Intent(this,PresentationSlidesActivity.class);
+        startActivity(iA);
         System.out.println("ppts");
     }
 
