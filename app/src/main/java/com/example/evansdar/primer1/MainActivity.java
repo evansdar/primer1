@@ -43,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickToSpeakers(View v){
-        // Intent iA = new Intent(this,SpeakerActivity.class);
-        // startActivity(iA);
+        Intent iA = new Intent(this,SpeakerActivity.class);
+        startActivity(iA);
         System.out.println("speakers");
     }
 

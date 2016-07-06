@@ -22,6 +22,10 @@
         <activity
             android:name=".PresentationSlidesActivity"
             android:label="@string/title_activity_presentation_slides"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SpeakerActivity"
+            android:label="@string/title_activity_speaker"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
