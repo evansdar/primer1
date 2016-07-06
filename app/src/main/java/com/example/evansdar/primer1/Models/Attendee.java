@@ -29,13 +29,14 @@ public class Attendee {
 
     public Attendee FromJson(JSONObject object) throws JSONException {
 
-
-        this.AttendeeInstitution =  new Institution().FromJson((JSONObject) object.get("AttendeeInstitution"));
+        //Something is broken with this resource (i think)
+        //this.AttendeeInstitution =  new Institution().FromJson((JSONObject) object.get("AttendeeInstitution"));
         this.Email = (String) object.get("Email");
         this.FirstName = (String) object.get("FirstName");
         this.Id = (String) object.get("Id");
         this.InstitutionId = (String) object.get("InstitutionId");
         this.IsPresenter = (boolean) object.get("IsPresenter");
+        this.LastName = (String) object.get("LastName");
 
         return null;
     }

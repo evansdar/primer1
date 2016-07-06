@@ -41,13 +41,13 @@ public class SpeakerActivity extends AppCompatActivity {
 
         try {
             JSONArray array = new RetrieveJsonArrayTask().execute("https://unosmanticoreapi.azurewebsites.net/api/speakers/").get();
-
+            int l = 0;
             Speaker speaker = new Speaker();
             speaker.FromJson((JSONObject) array.get(0));
 
 
             //textView(array.toString());
-            ArrayList<String> values = new ArrayList<String>();
+            ArrayList<String> values = new ArrayList<>();
 
             for(int i = 0; i < array.length(); i++) {
                 //TextView textView = new TextView();
