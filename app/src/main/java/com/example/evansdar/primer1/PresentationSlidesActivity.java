@@ -1,5 +1,6 @@
 package com.example.evansdar.primer1;
 
+import android.app.Fragment;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -52,9 +53,15 @@ public class PresentationSlidesActivity extends ListActivity implements ResultCa
         if (allSlidesArray != null) {
             try {
                 JSONObject jsonObject = allSlidesArray.getJSONObject(position);
+                String wrapper = "http://docs.google.com/gview?embedded=true&url=";
                 String downloadLink = jsonObject.getString("DownloadUri");
+                String finald = wrapper+downloadLink;
+                Intent iA = new Intent(this,WebViewFragment.class);
+                iA.putExtra("URL",finald);
+                startActivity(iA);
 
-                SharedPreferences prefs = getSharedPreferences("PresentationSlidesDetails", 0);
+
+               /** SharedPreferences prefs = getSharedPreferences("PresentationSlidesDetails", 0);
                 SharedPreferences.Editor editor = prefs.edit();
                 editor.putString("extension", jsonObject.getString("FileExtension"));
                 editor.putString("id", jsonObject.getString("Id"));
@@ -63,6 +70,7 @@ public class PresentationSlidesActivity extends ListActivity implements ResultCa
                 Uri uri = Uri.parse(downloadLink);
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
+                **/
             } catch (Exception e) {
                 String text = "Download failed.";
                 Toast toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);

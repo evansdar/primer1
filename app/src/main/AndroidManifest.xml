@@ -35,6 +35,9 @@
             android:name=".InstitutionActivity"
             android:label="@string/title_activity_institution" >
         </activity>
+        <activity android:name=".WebViewFragment"
+                android:label="WebViewThing">
+        </activity>
         <activity
             android:name=".LoginActivity"
 

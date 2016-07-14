@@ -34,7 +34,6 @@ public class AgendaActivity extends Activity implements ResultCallback {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agenda);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     }
 
     @Override
