@@ -9,6 +9,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.evansdar.primer1.Models.Attendee;
 import com.example.evansdar.primer1.Models.Event;
 
 import org.json.JSONArray;
@@ -27,22 +28,23 @@ public class AttendeeActivity extends Activity {
         setContentView(R.layout.activity_agenda);
 
         try {
-            JSONArray array = new RetrieveJsonArrayTask().execute("https://unosmanticoreapi.azurewebsites.net/api/attendee/").get();
-            Event event = new Event();
+            JSONArray array = new RetrieveJsonArrayTask().execute("https://unosmanticoreapi.azurewebsites.net/api/attendees/").get();
+            Attendee attendee = new Attendee();
+
 
 
             //textView(array.toString());
-            ArrayList<Event> events = new ArrayList<>();
+            ArrayList<Attendee> attendees = new ArrayList<>();
 
             for(int i = 0; i < array.length(); i++) {
-                events.add(new Event((JSONObject) array.get(i)));
+                attendees.add(new Attendee((JSONObject) array.get(i)));
             }
 
             TextView textView = new TextView(this);
-            textView.setText("Events");
+            textView.setText("Attendees");
             textView.setGravity(Gravity.CENTER);
             textView.setTextSize(36);
-            ArrayAdapter<Event> adapter = new ArrayAdapter<>(this, R.layout.activity_listview, events);
+            ArrayAdapter<Attendee> adapter = new ArrayAdapter<>(this, R.layout.activity_listview, attendees);
             ListView listView = (ListView) findViewById(R.id.displayEvents);
             listView.setAdapter(adapter);
             listView.addHeaderView(textView);

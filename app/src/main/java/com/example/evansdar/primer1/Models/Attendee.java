@@ -40,4 +40,21 @@ public class Attendee {
 
         return null;
     }
+
+    @Override
+    public String toString() {
+        //TODO There is an error with institution object from api repsonse, so once that is fixed add institution to tostring method
+
+        String retVal = "First Name: " + this.FirstName + "\n" +
+                        "Last Name: " + this.LastName  + "\n" +
+                        "email: " + this.Email;
+
+        if(this.IsPresenter){
+            retVal += "\n is a presenter";
+        }
+
+
+        return retVal;
+
+    }
 }

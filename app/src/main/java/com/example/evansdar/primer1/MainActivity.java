@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickToAttendees(View v){
         System.out.println("attendees");
-        //  Intent iA = new Intent(this,Exhibitors.class);
-        // startActivity(iA);
+          Intent iA = new Intent(this,AttendeeActivity.class);
+         startActivity(iA);
     }
 
     public void onClickToSpeakers(View v){
