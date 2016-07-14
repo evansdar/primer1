@@ -33,6 +33,10 @@
             android:name=".AttendeeActivity"
             android:label="@string/title_activity_attendee" >
         </activity>
+        <activity
+            android:name=".InstitutionActivity"
+            android:label="@string/title_activity_institution" >
+        </activity>
     </application>
 
 </manifest>

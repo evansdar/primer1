@@ -35,13 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickToAttendees(View v){
 
-
-        ProgressDialog pd = new ProgressDialog(this, ProgressDialog.STYLE_SPINNER);
-        pd.setTitle("Title");
-        pd.setMessage("message");
-        pd.show();
-
-
         System.out.println("attendees");
           Intent iA = new Intent(this,AttendeeActivity.class);
          startActivity(iA);
@@ -55,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickToExhibitors(View v){
         System.out.println("exhibitors");
-        //  Intent iA = new Intent(this,Exhibitors.class);
-        // startActivity(iA);
+        Intent iA = new Intent(this,InstitutionActivity.class);
+        startActivity(iA);
     }
 
     public void onClickToPPTs(View v){
