@@ -36,7 +36,6 @@ public class SpeakerActivity extends AppCompatActivity {
             Speaker speaker = new Speaker();
 
             ArrayList<Speaker> speakers = new ArrayList<Speaker>();
-            ArrayList<Speaker> details = new ArrayList<Speaker>();
 
             for(int i = 0; i < array.length(); i++) {
                 speakers.add(new Speaker((JSONObject) array.get(i)));
