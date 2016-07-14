@@ -62,7 +62,7 @@ public class AgendaActivity extends Activity implements ResultCallback {
             listView.setAdapter(adapter);
 
             TextView textView = new TextView(this);
-            textView.setText("Events");
+            textView.setText("Agenda");
             textView.setGravity(Gravity.CENTER);
             textView.setTextSize(36);
             listView.addHeaderView(textView);

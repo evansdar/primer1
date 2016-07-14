@@ -35,7 +35,7 @@ public class InstitutionActivity extends Activity implements ResultCallback {
             listView.setAdapter(adapter);
 
             TextView textView = new TextView(this);
-            textView.setText("Institutions");
+            textView.setText("Exhibitors");
             textView.setGravity(Gravity.CENTER);
             textView.setTextSize(36);
             listView.addHeaderView(textView);
