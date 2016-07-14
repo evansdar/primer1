@@ -1,14 +1,18 @@
 package com.example.evansdar.primer1;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.evansdar.primer1.Models.Event;
 import com.example.evansdar.primer1.Models.Speaker;
 
 import org.json.JSONArray;
@@ -18,17 +22,12 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
-public class SpeakerActivity extends AppCompatActivity {
+public class SpeakerActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_speaker);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-
-        ProgressDialog progress = ProgressDialog.show(this, "dialog title", "dialog message", true);
 
         try {
             JSONArray array = new RetrieveJsonArrayTask().execute("https://unosmanticoreapi.azurewebsites.net/api/speakers/").get();
@@ -44,6 +43,11 @@ public class SpeakerActivity extends AppCompatActivity {
             ArrayAdapter<Speaker> adapter = new ArrayAdapter<Speaker>(this, R.layout.activity_listview, speakers);
             ListView listView = (ListView) findViewById(R.id.displaySpeakers);
             listView.setAdapter(adapter);
+            TextView textView = new TextView(this);
+            textView.setText("Speakers");
+            textView.setGravity(Gravity.CENTER);
+            textView.setTextSize(36);
+            listView.addHeaderView(textView);
 
 
             //obj.toString();
@@ -60,8 +64,6 @@ public class SpeakerActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        finally {
-            progress.dismiss();
-        }
+
     }
 }
