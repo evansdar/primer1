@@ -35,7 +35,7 @@ public class Attendee {
         this.FirstName = (String) object.get("FirstName");
         this.Id = (String) object.get("Id");
         this.InstitutionId = (String) object.get("InstitutionId");
-        this.IsPresenter = (boolean) object.get("IsPresenter");
+        this.IsPresenter = (boolean) object.getBoolean("IsPresenter");
         this.LastName = (String) object.get("LastName");
 
         return null;

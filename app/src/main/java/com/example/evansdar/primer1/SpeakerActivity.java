@@ -2,14 +2,10 @@ package com.example.evansdar.primer1;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.evansdar.primer1.Models.Speaker;
@@ -19,7 +15,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class SpeakerActivity extends AppCompatActivity {
@@ -47,7 +42,7 @@ public class SpeakerActivity extends AppCompatActivity {
 
 
             //textView(array.toString());
-            ArrayList<String> values = new ArrayList<>();
+            ArrayList<String> values = new ArrayList<String>();
 
             for(int i = 0; i < array.length(); i++) {
                 //TextView textView = new TextView();

@@ -34,13 +34,13 @@ public class Institution {
 
         this.City = (String) object.get("City");
         this.Id = (String) object.get("Id");
-        this.IsExibitor = (boolean) object.get("IsExibitor");
+        this.IsExibitor = (boolean) object.getBoolean("IsExibitor");
         this.Name = (String) object.get("Name");
-        this.PhoneNumber = (int) object.get("PhoneNumber");
+        this.PhoneNumber = (int) object.getInt("PhoneNumber");
         this.State = (String) object.get("State");
         this.StreetAddress = (String) object.get("StreetAddress");
         this.Summary = (String) object.get("Summary");
-        this.ZipCode = (int) object.get("ZipCode");
+        this.ZipCode = (int) object.getInt("ZipCode");
 
 
 
