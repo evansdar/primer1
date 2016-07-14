@@ -38,7 +38,7 @@ public class InstitutionActivity extends Activity {
             }
 
             TextView textView = new TextView(this);
-            textView.setText("Institutions");
+            textView.setText("Exhibitors");
             textView.setGravity(Gravity.CENTER);
             textView.setTextSize(36);
             ArrayAdapter<Institution> adapter = new ArrayAdapter<>(this, R.layout.activity_listview, institutions);

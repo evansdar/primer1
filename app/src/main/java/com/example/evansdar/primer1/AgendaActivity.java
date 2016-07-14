@@ -43,7 +43,7 @@ public class AgendaActivity extends AppCompatActivity{
             }
 
             TextView textView = new TextView(this);
-            textView.setText("Events");
+            textView.setText("Agenda");
             textView.setGravity(Gravity.CENTER);
             textView.setTextSize(36);
             ArrayAdapter<Event> adapter = new ArrayAdapter<>(this, R.layout.activity_listview, events);
