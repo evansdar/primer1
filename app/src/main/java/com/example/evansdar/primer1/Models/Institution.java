@@ -34,17 +34,29 @@ public class Institution {
 
         this.City = (String) object.get("City");
         this.Id = (String) object.get("Id");
-        this.IsExibitor = (boolean) object.getBoolean("IsExibitor");
+        this.IsExibitor = object.getBoolean("IsExibitor");
         this.Name = (String) object.get("Name");
-        this.PhoneNumber = (int) object.getInt("PhoneNumber");
+        this.PhoneNumber = object.getInt("PhoneNumber");
         this.State = (String) object.get("State");
         this.StreetAddress = (String) object.get("StreetAddress");
         this.Summary = (String) object.get("Summary");
-        this.ZipCode = (int) object.getInt("ZipCode");
+        this.ZipCode = object.getInt("ZipCode");
 
 
 
         return this;
+    }
+
+    @Override
+    public String toString() {
+        //TODO There is an error with institution object from api repsonse, so once that is fixed add institution to tostring method
+        return  "Name: " + this.Name + "\n" +
+                "Address: " + this.StreetAddress + "\n" +
+                "City: " + this.City + "\n" +
+                "State: " + this.State + "\n" +
+                "Zip code: " + this.ZipCode + "\n" +
+                "Phone Number: "+ this.PhoneNumber + "\n" +
+                "Summary: " + this.Summary;
     }
 }
 
