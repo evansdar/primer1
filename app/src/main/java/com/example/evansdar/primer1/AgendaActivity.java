@@ -1,10 +1,17 @@
-package com.example.evansdar.primer1;
+/*package com.example.evansdar.primer1;
+
+import android.widget.ListView;
 
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.example.evansdar.primer1.Models.AgendaEvent;
+
+import org.json.JSONArray;
+
 import android.widget.Toast;
 import com.example.evansdar.primer1.Models.Event;
 import org.json.JSONArray;
@@ -32,6 +39,9 @@ public class AgendaActivity extends Activity {
             //textView(array.toString());
             ArrayList<String> values = new ArrayList<String>();
 
+        ArrayAdapter<AgendaEvent> adapter = new ArrayAdapter<AgendaEvent>(this, R.layout.activity_listview, (AgendaEvent[]) values.toArray());
+        ListView listView = (ListView) findViewById(R.id.displayEvents);
+        listView.setAdapter(adapter);
             for(int i = 0; i < array.length(); i++) {
                 values.add( array.get(i).toString());
             }
@@ -55,3 +65,4 @@ public class AgendaActivity extends Activity {
 
     }
 }
+*/

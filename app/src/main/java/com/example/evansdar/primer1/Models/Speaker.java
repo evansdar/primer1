@@ -39,6 +39,14 @@ public class Speaker extends JSONObject {
         this.Title = Arrays.asList(((String) object.get("Title")).split("\\s*,\\s*"));
 
         return this;
-
+    }
+    @Override
+    public String toString() {
+        //TODO There is an error with institution object from api repsonse, so once that is fixed add institution to tostring method
+        return this.Attendee.LastName + ", " + this.Attendee.FirstName
+                + "\n" + this.Title.toString()
+                + "\n" + "United Network for Organ Sharing"
+                + "\n" + this.City + " " + this.State
+                + "\n" + this.Attendee.Email;
     }
 }
