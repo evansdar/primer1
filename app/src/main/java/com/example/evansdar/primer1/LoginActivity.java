@@ -11,6 +11,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * A login screen that offers login via email/password.
@@ -49,11 +50,13 @@ public class LoginActivity extends Activity{
 
 
         // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-            //Toast
+        if (TextUtils.isEmpty(password) || !isPasswordValid(password)) {
+            Toast.makeText(this,"Incorrect Password",Toast.LENGTH_SHORT).show();
         }
         else
         {
+            Toast.makeText(this,"Signing in...",Toast.LENGTH_SHORT).show();
+
             Intent iA = new Intent(this,MainActivity.class);
             startActivity(iA);
             System.out.println("MainActivity");
