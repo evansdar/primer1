@@ -7,4 +7,5 @@
     <color name="almostCyan">#E0F7FA</color>
     <color name="almostIndigo">#9FA8DA</color>
     <color name="black">#000000</color>
+    <color name="backgroundColor">#eaeded</color>
 </resources>

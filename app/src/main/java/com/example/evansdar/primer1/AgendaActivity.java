@@ -1,13 +1,19 @@
 package com.example.evansdar.primer1;
 
+
 import android.view.Gravity;
 import android.widget.ListView;
+
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.widget.ArrayAdapter;
 
 import org.json.JSONArray;
+
 
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +31,22 @@ public class AgendaActivity extends Activity implements ResultCallback {
     private ListView listView;
 
     @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_agenda);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+    }
+
+    @Override
+    protected void onResume() {
+
+        super.onResume();
+
+        new RetrieveJsonArrayTask(this, this).execute("https://unosmanticoreapi.azurewebsites.net/api/events/");
+    }
+
+
+    @Override
     public void onResult(JSONArray array) {
 
         ArrayList<Event> events = new ArrayList<>();
@@ -34,7 +56,6 @@ public class AgendaActivity extends Activity implements ResultCallback {
             for (int i = 0; i < array.length(); i++) {
                 events.add(new Event((JSONObject) array.get(i)));
             }
-
 
             ArrayAdapter<Event> adapter = new ArrayAdapter<>(this, R.layout.activity_listview, events);
             listView = (ListView) findViewById(R.id.displayEvents);
@@ -56,21 +77,5 @@ public class AgendaActivity extends Activity implements ResultCallback {
             toast.show();
         }
     }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_agenda);
-    }
-
-    @Override
-    protected void onResume() {
-
-        super.onResume();
-
-        new RetrieveJsonArrayTask(this, this).execute("https://unosmanticoreapi.azurewebsites.net/api/events/");
-
-    }
 }
-
 

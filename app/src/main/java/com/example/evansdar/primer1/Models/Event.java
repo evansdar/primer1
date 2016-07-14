@@ -48,5 +48,6 @@ public class Event extends JSONObject {
                 "Start Time: " + this.StartTimeUtc + "\n" +
                 "End Time: " + this.EndTimeUtc + "\n";
                 //"Location: "+ this.EventLocation.Name;
+
     }
 }

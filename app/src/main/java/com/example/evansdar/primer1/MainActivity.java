@@ -25,6 +25,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed()
+    {
+        //Let the call die so user cannot
+    }
+
     public void onClickToAgenda(View v){
         System.out.println("agenda");
 
@@ -33,9 +39,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickToAttendees(View v){
+
         System.out.println("attendees");
-        //  Intent iA = new Intent(this,Exhibitors.class);
-        // startActivity(iA);
+          Intent iA = new Intent(this,AttendeeActivity.class);
+         startActivity(iA);
     }
 
     public void onClickToSpeakers(View v){
@@ -46,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickToExhibitors(View v){
         System.out.println("exhibitors");
-        //  Intent iA = new Intent(this,Exhibitors.class);
-        // startActivity(iA);
+        Intent iA = new Intent(this,InstitutionActivity.class);
+        startActivity(iA);
     }
 
     public void onClickToPPTs(View v){
@@ -56,24 +63,6 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("ppts");
     }
 
-
-//    public void fetchJSON(){
-//
-//
-//        try {
-//            JSONArray array = new RetrieveJsonArrayTask().execute("https://unosmanticoreapi.azurewebsites.net/Help/Api/GET-api-Locations").get();
-//
-//
-//
-//
-//
-//
-//        }catch(InterruptedException e){
-//            e.printStackTrace();
-//        }catch(ExecutionException f){
-//            f.printStackTrace();
-//        }
-//    }
 
     public String changeAgendaText(){
 
