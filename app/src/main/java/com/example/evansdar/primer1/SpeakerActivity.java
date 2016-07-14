@@ -1,15 +1,12 @@
 package com.example.evansdar.primer1;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.evansdar.primer1.Models.Speaker;
@@ -19,12 +16,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class SpeakerActivity extends AppCompatActivity {
-
-    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,29 +28,24 @@ public class SpeakerActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        listView = (ListView) findViewById(R.id.listView);
-
+        ProgressDialog progress = ProgressDialog.show(this, "dialog title", "dialog message", true);
 
         try {
             JSONArray array = new RetrieveJsonArrayTask().execute("https://unosmanticoreapi.azurewebsites.net/api/speakers/").get();
-            int l = 0;
+
             Speaker speaker = new Speaker();
-            speaker.FromJson((JSONObject) array.get(0));
 
-
-            //textView(array.toString());
-            ArrayList<String> values = new ArrayList<>();
+            ArrayList<Speaker> speakers = new ArrayList<Speaker>();
+            ArrayList<Speaker> details = new ArrayList<Speaker>();
 
             for(int i = 0; i < array.length(); i++) {
-                //TextView textView = new TextView();
-                values.add( array.get(i).toString());
-                //listView.addView(new View(getApplicationContext()));
+                speakers.add(new Speaker((JSONObject) array.get(i)));
             }
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                    android.R.layout.simple_list_item_1, android.R.id.text1, values);
+
+            ArrayAdapter<Speaker> adapter = new ArrayAdapter<Speaker>(this, R.layout.activity_listview, speakers);
+            ListView listView = (ListView) findViewById(R.id.displaySpeakers);
             listView.setAdapter(adapter);
+
 
             //obj.toString();
         } catch (InterruptedException e) {
@@ -72,6 +61,8 @@ public class SpeakerActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
+        finally {
+            progress.dismiss();
+        }
     }
 }

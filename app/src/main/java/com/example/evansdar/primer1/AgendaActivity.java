@@ -1,14 +1,13 @@
 package com.example.evansdar.primer1;
 
-import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.app.Activity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
+
+import com.example.evansdar.primer1.Models.AgendaEvent;
+
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -32,7 +31,7 @@ public class AgendaActivity extends Activity {
         }
 
 
-        ArrayAdapter<AgendaEvent> adapter = new ArrayAdapter<AgendaEvent>(this,R.layout.activity_listview,agendaEvents);
+        ArrayAdapter<AgendaEvent> adapter = new ArrayAdapter<AgendaEvent>(this, R.layout.activity_listview, agendaEvents);
         ListView listView = (ListView) findViewById(R.id.displayEvents);
         listView.setAdapter(adapter);
 

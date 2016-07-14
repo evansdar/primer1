@@ -1,4 +1,4 @@
-package com.example.evansdar.primer1;
+package com.example.evansdar.primer1.Models;
 
 /**
  * Created by mccrawbj on 7/6/16.
