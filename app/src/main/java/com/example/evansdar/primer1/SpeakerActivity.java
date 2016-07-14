@@ -3,8 +3,10 @@ package com.example.evansdar.primer1;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.evansdar.primer1.Models.Speaker;
@@ -37,6 +39,13 @@ public class SpeakerActivity extends AppCompatActivity implements ResultCallback
             listView = (ListView) findViewById(R.id.displaySpeakers);
             listView.setAdapter(adapter);
 
+
+            TextView textView = new TextView(this);
+            textView.setText("Speakers");
+            textView.setGravity(Gravity.CENTER);
+            textView.setTextSize(36);
+            listView.addHeaderView(textView);
+
         } catch (JSONException e) {
             e.printStackTrace();
 
@@ -52,7 +61,6 @@ public class SpeakerActivity extends AppCompatActivity implements ResultCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_speaker);
-        listView = (ListView) findViewById(R.id.displaySpeakers);
     }
 
     @Override

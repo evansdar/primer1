@@ -28,6 +28,7 @@ public class RetrieveJsonArrayTask extends AsyncTask<String, Void, JSONArray> {
     {
         this.context = context;
         dlg = new ProgressDialog(context);
+        //dlg.setMes("Fetching data...");
         this.call = call;
     }
 

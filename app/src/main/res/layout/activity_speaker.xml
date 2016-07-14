@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical"
-tools:context=".SpeakerActivity"
-android:background="@color/backgroundColor">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
+    android:orientation="vertical"
+    tools:context=".SpeakerActivity">
 
-        <ListView
-            android:id="@+id/displaySpeakers"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="false">
-        </ListView>
+    <ListView
+        android:id="@+id/displaySpeakers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"></ListView>
 
-    </LinearLayout>
-
+</LinearLayout>
 
