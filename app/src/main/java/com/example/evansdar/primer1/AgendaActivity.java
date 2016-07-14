@@ -18,7 +18,7 @@ public class AgendaActivity extends Activity {
     ListView listView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {`
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_speaker);
 
@@ -33,11 +33,9 @@ public class AgendaActivity extends Activity {
             ArrayList<String> values = new ArrayList<String>();
 
             for(int i = 0; i < array.length(); i++) {
-                //TextView textView = new TextView();
                 values.add( array.get(i).toString());
-                //listView.addView(new View(getApplicationContext()));
             }
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.activity_listview, values);
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.activity_listview, values);
             listView.setAdapter(adapter);
 
             //obj.toString();
