@@ -1,6 +1,5 @@
 package com.example.evansdar.primer1;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +23,12 @@ public class MainActivity extends AppCompatActivity {
         Button exhibitors = (Button) findViewById(R.id.exhibitorsButton);
         // fetchJSON();
 
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        //Let the call die so user cannot
     }
 
     public void onClickToAgenda(View v){
@@ -58,24 +63,6 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("ppts");
     }
 
-
-//    public void fetchJSON(){
-//
-//
-//        try {
-//            JSONArray array = new RetrieveJsonArrayTask().execute("https://unosmanticoreapi.azurewebsites.net/Help/Api/GET-api-Locations").get();
-//
-//
-//
-//
-//
-//
-//        }catch(InterruptedException e){
-//            e.printStackTrace();
-//        }catch(ExecutionException f){
-//            f.printStackTrace();
-//        }
-//    }
 
     public String changeAgendaText(){
 

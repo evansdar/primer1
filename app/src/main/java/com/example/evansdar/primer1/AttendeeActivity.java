@@ -10,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.evansdar.primer1.Models.Attendee;
-import com.example.evansdar.primer1.Models.Event;
 
 import org.json.JSONArray;
 import org.json.JSONException;
