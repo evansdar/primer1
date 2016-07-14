@@ -29,7 +29,7 @@ public class Attendee {
 
     public Attendee FromJson(JSONObject object) throws JSONException {
 
-        //Something is broken with this resource (i think)
+        //TODO Something is broken with this resource (i think)
         //this.AttendeeInstitution =  new Institution().FromJson((JSONObject) object.get("AttendeeInstitution"));
         this.Email = (String) object.get("Email");
         this.FirstName = (String) object.get("FirstName");
@@ -40,4 +40,11 @@ public class Attendee {
 
         return null;
     }
+    @Override
+    public String toString() {
+
+        return this.LastName + ", " + this.FirstName
+                + "\n" + this.Email;
+    }
+
 }

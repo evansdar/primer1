@@ -43,10 +43,9 @@ public class Speaker extends JSONObject {
     @Override
     public String toString() {
         //TODO There is an error with institution object from api repsonse, so once that is fixed add institution to tostring method
-        return this.Attendee.LastName + ", " + this.Attendee.FirstName
+        return this.Attendee.toString()
                 + "\n" + this.Title.toString()
                 + "\n" + "United Network for Organ Sharing"
-                + "\n" + this.City + " " + this.State
-                + "\n" + this.Attendee.Email;
+                + "\n" + this.City + " " + this.State;
     }
 }

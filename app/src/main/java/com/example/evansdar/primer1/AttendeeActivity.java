@@ -19,41 +19,32 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
-public class AttendeeActivity extends Activity {
+public class AttendeeActivity extends Activity implements ResultCallback {
 
+    private ResultCallback listener;
+    private ListView listView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_agenda);
+    public void onResult(JSONArray array) {
+
+        ArrayList<Attendee> attendees = new ArrayList<>();
 
         try {
-            JSONArray array = new RetrieveJsonArrayTask().execute("https://unosmanticoreapi.azurewebsites.net/api/attendees/").get();
-            Attendee attendee = new Attendee();
-
-
-
-            //textView(array.toString());
-            ArrayList<Attendee> attendees = new ArrayList<>();
-
-            for(int i = 0; i < array.length(); i++) {
+            for (int i = 0; i < array.length(); i++) {
                 attendees.add(new Attendee((JSONObject) array.get(i)));
             }
+
+
+            ArrayAdapter<Attendee> adapter = new ArrayAdapter<>(this, R.layout.activity_listview, attendees);
+            listView = (ListView) findViewById(R.id.displayEvents);
+            listView.setAdapter(adapter);
 
             TextView textView = new TextView(this);
             textView.setText("Attendees");
             textView.setGravity(Gravity.CENTER);
             textView.setTextSize(36);
-            ArrayAdapter<Attendee> adapter = new ArrayAdapter<>(this, R.layout.activity_listview, attendees);
-            ListView listView = (ListView) findViewById(R.id.displayEvents);
-            listView.setAdapter(adapter);
             listView.addHeaderView(textView);
 
-            //obj.toString();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
         } catch (NullPointerException e) {
             Context context = getApplicationContext();
             int duration = Toast.LENGTH_LONG;
@@ -63,6 +54,19 @@ public class AttendeeActivity extends Activity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_agenda);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        new RetrieveJsonArrayTask(this, this).execute("https://unosmanticoreapi.azurewebsites.net/api/attendees/");
 
     }
 }

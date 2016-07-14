@@ -1,6 +1,11 @@
 package com.example.evansdar.primer1;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.DialerFilter;
+import android.widget.ResourceCursorTreeAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -15,6 +20,24 @@ import java.nio.charset.Charset;
 
 public class RetrieveJsonArrayTask extends AsyncTask<String, Void, JSONArray> {
     private Exception exception;
+    private Context context;
+    private Dialog dlg;
+    private ResultCallback call;
+
+    public RetrieveJsonArrayTask(Context context, ResultCallback call)
+    {
+        this.context = context;
+        dlg = new ProgressDialog(context);
+        this.call = call;
+    }
+
+
+    @Override
+    protected void onPreExecute()
+    {
+        if(!dlg.isShowing())dlg.show();
+    }
+
     @Override
     protected JSONArray doInBackground(String... params) {
         try {
@@ -30,6 +53,8 @@ public class RetrieveJsonArrayTask extends AsyncTask<String, Void, JSONArray> {
     @Override
     protected void onPostExecute(JSONArray result) {
         super.onPostExecute(result);
+        if(dlg.isShowing())dlg.dismiss();
+        call.onResult(result);
         //return result;
     }
     public static JSONArray readJsonArrayFromUrl(String url) throws IOException, JSONException {

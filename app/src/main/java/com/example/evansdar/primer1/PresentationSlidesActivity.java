@@ -1,6 +1,9 @@
 package com.example.evansdar.primer1;
 
 import android.app.ListActivity;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -12,18 +15,22 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class PresentationSlidesActivity extends ListActivity {
+public class PresentationSlidesActivity extends ListActivity implements ResultCallback {
 
     static private String slidesURL = "https://unosmanticoreapi.azurewebsites.net/api/PresentationDocs";
     JSONArray allSlidesArray;
 
+    public void onResult(JSONArray array)
+    {
+        //don't do shit
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_presentation_slides);
 
         try {
-            allSlidesArray = new RetrieveJsonArrayTask().execute(slidesURL).get();
+            allSlidesArray = new RetrieveJsonArrayTask(this,this).execute(slidesURL).get();
             ArrayList<String> fileDescriptions = new ArrayList<String>();
             for (int i = 0; i < allSlidesArray.length(); i ++) {
                 JSONObject jsonObject = allSlidesArray.getJSONObject(i);
@@ -44,10 +51,18 @@ public class PresentationSlidesActivity extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         if (allSlidesArray != null) {
             try {
-                final DownloadTask downloadTask = new DownloadTask(PresentationSlidesActivity.this);
                 JSONObject jsonObject = allSlidesArray.getJSONObject(position);
                 String downloadLink = jsonObject.getString("DownloadUri");
-                downloadTask.execute(downloadLink);
+
+                SharedPreferences prefs = getSharedPreferences("PresentationSlidesDetails", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("extension", jsonObject.getString("FileExtension"));
+                editor.putString("id", jsonObject.getString("Id"));
+                editor.commit();
+
+                Uri uri = Uri.parse(downloadLink);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
             } catch (Exception e) {
                 String text = "Download failed.";
                 Toast toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);

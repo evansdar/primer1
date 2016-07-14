@@ -15,8 +15,8 @@ public class Event extends JSONObject {
     public String EndTimeUtc;
     public String Title;
     public String Locationid;
-    public String EventLocation;
-    public List<String> Presenters;
+    public EventLocation EventLocation;
+    public List<EventPresenter> Presenters;
 
     public Event() {
     }
@@ -34,11 +34,19 @@ public class Event extends JSONObject {
         this.StartTimeUtc = (String) object.get("StartTimeUtc");
         this.EndTimeUtc = object.getString("EndTimeUtc");
         this.Title = object.getString("Title");
-        this.Locationid = (String) object.get("Locationid");
-        this.EventLocation = (String) object.get("EventLocation");
-        this.Presenters = Arrays.asList(((String) object.get("Presenters")).split("\\s*,\\s*"));
+        this.Locationid = (String) object.get("LocationId");
+        this.EventLocation = new EventLocation((JSONObject) object.get("EventLocation"));
+        this.Presenters = Arrays.asList((new EventPresenter((JSONObject) object.get("EventPresenter"))));
 
         return this;
 
+    }
+
+    @Override
+    public String toString() {
+        return  "Title: " + Title + "\n" +
+                "Start Time: " + this.StartTimeUtc + "\n" +
+                "End Time: " + this.EndTimeUtc + "\n";
+                //"Location: "+ this.EventLocation.Name;
     }
 }
