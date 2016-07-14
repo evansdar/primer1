@@ -2,9 +2,7 @@ package com.example.evansdar.primer1;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -20,7 +18,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
-public class AgendaActivity extends Activity {
+public class InstitutionActivity extends Activity {
 
 
     @Override

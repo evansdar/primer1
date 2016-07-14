@@ -41,4 +41,13 @@ public class Event extends JSONObject {
         return this;
 
     }
+
+    @Override
+    public String toString() {
+        //TODO There is an error with institution object from api repsonse, so once that is fixed add institution to tostring method
+        return  "Title: " + Title.toString() + "\n" +
+                "Start Time: " + this.StartTimeUtc + "\n" +
+                "End Time: " + this.EndTimeUtc + "\n" +
+                "Location: "+ this.EventLocation;
+    }
 }

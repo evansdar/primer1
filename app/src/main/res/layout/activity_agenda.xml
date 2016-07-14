@@ -3,12 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AgendaActivity" >
+    tools:context=".AgendaActivity"
+    android:background="@color/backgroundColor">
+
 
     <ListView
         android:id="@+id/displayEvents"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:clickable="false">
     </ListView>
 
 </LinearLayout>
