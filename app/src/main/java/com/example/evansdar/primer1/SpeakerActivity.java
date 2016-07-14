@@ -52,8 +52,6 @@ public class SpeakerActivity extends AppCompatActivity implements ResultCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_speaker);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         listView = (ListView) findViewById(R.id.displaySpeakers);
     }
 
