@@ -58,5 +58,41 @@ public class Institution {
                 "Phone Number: "+ this.PhoneNumber + "\n" +
                 "Summary: " + this.Summary;
     }
+
+    public int getZipCode() {
+        return ZipCode;
+    }
+
+    public String getSummary() {
+        return Summary;
+    }
+
+    public String getCity() {
+        return City;
+    }
+
+    public String getId() {
+        return Id;
+    }
+
+    public boolean isExibitor() {
+        return IsExibitor;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public int getPhoneNumber() {
+        return PhoneNumber;
+    }
+
+    public String getState() {
+        return State;
+    }
+
+    public String getStreetAddress() {
+        return StreetAddress;
+    }
 }
 

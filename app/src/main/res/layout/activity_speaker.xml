@@ -6,13 +6,33 @@
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
     android:orientation="vertical"
-    tools:context=".SpeakerActivity">
+    tools:context=".Activities.SpeakerActivity">
+
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="UNOS Primer"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+    </android.support.v7.widget.Toolbar>
 
     <ListView
         android:id="@+id/displaySpeakers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="false"></ListView>
+        android:clickable="false"
+        android:divider="#6DB337"
+        android:dividerHeight="10px"></ListView>
 
 </LinearLayout>
 

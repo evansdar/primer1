@@ -1,78 +1,117 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@color/indigo"
-    tools:context="com.example.evansdar.primer1.MainActivity"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/backgroundColor"
     android:orientation="vertical"
-    android:weightSum="1">
+    tools:context=".Activities.MainActivity">
 
 
-    <Button
-        android:id="@+id/agendaButton"
-        android:background="@drawable/button_border"
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="UNOS Primer"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+    </android.support.v7.widget.Toolbar>
+
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/previewListViewHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7px"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/greyColor"
+        android:elevation="5dp"
+        android:gravity="center"
+        android:text="Schedule"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#212121"
+        android:textSize="20dp" />
+
+    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/previewListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Agenda"
-        android:contextClickable="true"
-        android:onClick="onClickToAgenda"
-        android:layout_weight="0.20"
-        android:layout_gravity="center_horizontal" />
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/listviewBack"
+        android:textSize="15sp" />
 
-    <Button
-        android:id="@+id/attendeesButton"
-        android:layout_width="match_parent"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_border"
-        android:text="Attendees"
-        android:onClick="onClickToAttendees"
-        android:layout_weight="0.20"
-        android:layout_gravity="center" />
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:weightSum="1">
 
-    <Button
-        android:id="@+id/speakersButton"
-        android:background="@drawable/button_border"
-        android:layout_width="match_parent"
+        <Button xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/attendeesButton"
+            style="@style/button_text"
+            android:layout_width="0dp"
+            android:layout_height="125dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/button_style"
+            android:elevation="5dp"
+            android:onClick="onClickToAttendees"
+            android:text="Attendees" />
+
+        <Button xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/exhibitorsButton"
+            style="@style/button_text"
+            android:layout_width="0dp"
+            android:layout_height="125dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight=".5"
+            android:background="@drawable/button_style"
+            android:elevation="5dp"
+            android:onClick="onClickToExhibitors"
+            android:text="Exhibitors" />
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Speakers"
-        android:onClick="onClickToSpeakers"
-        android:layout_weight="0.20"
-        android:layout_gravity="center_horizontal" />
+        android:orientation="horizontal"
+        android:weightSum="1">
 
-    <Button
-        android:id="@+id/exhibitorsButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_border"
-        android:text="Exhibitors"
-        android:layout_gravity="center_horizontal"
-        android:onClick="onClickToExhibitors"
-        android:layout_weight="0.20"/>
+        <Button xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/speakersButton"
+            style="@style/button_text"
+            android:layout_width="0dp"
+            android:layout_height="125dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_style"
+            android:elevation="5dp"
+            android:onClick="onClickToSpeakers"
+            android:text="Speakers" />
 
-    <Button
-        android:id="@+id/pptsButton"
-        android:background="@drawable/button_border"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Power Points"
-        android:onClick="onClickToPPTs"
-        android:layout_weight="0.20"
-        android:layout_gravity="center_horizontal" />
-
-
-    =======
-    android:orientation="vertical"
-    tools:context=".AgendaActivity">
-
-    <ListView
-        android:id="@+id/displayEvents"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-    </ListView>
-    >>>>>>> Stashed changes
+    </LinearLayout>
 </LinearLayout>

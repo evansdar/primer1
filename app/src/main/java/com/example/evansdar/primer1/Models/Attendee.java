@@ -16,8 +16,6 @@ public class Attendee {
     public boolean IsPresenter;
     public String LastName;
 
-    public Attendee() {
-    }
 
     public Attendee(JSONObject object) {
         try {
@@ -29,24 +27,49 @@ public class Attendee {
 
     public Attendee FromJson(JSONObject object) throws JSONException {
 
-        //TODO Something is broken with this resource (i think)
-        //this.AttendeeInstitution =  new Institution().FromJson((JSONObject) object.get("AttendeeInstitution"));
         this.Email = (String) object.get("Email");
         this.FirstName = (String) object.get("FirstName");
         this.Id = (String) object.get("Id");
         this.InstitutionId = (String) object.get("InstitutionId");
-        this.IsPresenter = (boolean) object.getBoolean("IsPresenter");
+        this.IsPresenter = object.getBoolean("IsPresenter");
         this.LastName = (String) object.get("LastName");
 
-        return null;
+        return this;
+    }
+
+    public Institution getAttendeeInstitution() {
+        return AttendeeInstitution;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public String getFirstName() {
+        return FirstName;
+    }
+
+    public String getId() {
+        return Id;
+    }
+
+    public String getInstitutionId() {
+        return InstitutionId;
+    }
+
+    public boolean isPresenter() {
+        return IsPresenter;
+    }
+
+    public String getLastName() {
+        return LastName;
     }
 
     @Override
     public String toString() {
         //TODO There is an error with institution object from api repsonse, so once that is fixed add institution to tostring method
 
-        String retVal = "First Name: " + this.FirstName + "\n" +
-                        "Last Name: " + this.LastName  + "\n" +
+        String retVal = this.FirstName + " " + this.LastName + "\n" +
                         "email: " + this.Email;
 
         if(this.IsPresenter){

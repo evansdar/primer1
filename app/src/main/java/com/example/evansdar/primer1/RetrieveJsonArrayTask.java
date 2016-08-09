@@ -4,8 +4,6 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.widget.DialerFilter;
-import android.widget.ResourceCursorTreeAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,32 +30,6 @@ public class RetrieveJsonArrayTask extends AsyncTask<String, Void, JSONArray> {
         this.call = call;
     }
 
-
-    @Override
-    protected void onPreExecute()
-    {
-        if(!dlg.isShowing())dlg.show();
-    }
-
-    @Override
-    protected JSONArray doInBackground(String... params) {
-        try {
-            //URL url = new URL(urls[0]);
-            JSONArray obj = this.readJsonArrayFromUrl(params[0]);
-
-            return obj;
-        } catch (Exception e) {
-            this.exception = e;
-            return null;
-        }
-    }
-    @Override
-    protected void onPostExecute(JSONArray result) {
-        super.onPostExecute(result);
-        if(dlg.isShowing())dlg.dismiss();
-        call.onResult(result);
-        //return result;
-    }
     public static JSONArray readJsonArrayFromUrl(String url) throws IOException, JSONException {
         InputStream is = new URL(url).openStream();
         try {
@@ -69,6 +41,7 @@ public class RetrieveJsonArrayTask extends AsyncTask<String, Void, JSONArray> {
             is.close();
         }
     }
+
     private static String readAll(Reader rd) throws IOException {
         StringBuilder sb = new StringBuilder();
         int cp;
@@ -76,5 +49,32 @@ public class RetrieveJsonArrayTask extends AsyncTask<String, Void, JSONArray> {
             sb.append((char) cp);
         }
         return sb.toString();
+    }
+
+    @Override
+    protected void onPreExecute()
+    {
+        if(!dlg.isShowing())dlg.show();
+    }
+
+    @Override
+    protected JSONArray doInBackground(String... params) {
+        try {
+            //URL url = new URL(urls[0]);
+            JSONArray obj = readJsonArrayFromUrl(params[0]);
+
+            return obj;
+        } catch (Exception e) {
+            this.exception = e;
+            return null;
+        }
+    }
+
+    @Override
+    protected void onPostExecute(JSONArray result) {
+        super.onPostExecute(result);
+        if(dlg.isShowing())dlg.dismiss();
+        call.onResult(result);
+        //return result;
     }
 }

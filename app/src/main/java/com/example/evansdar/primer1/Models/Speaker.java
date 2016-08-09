@@ -18,8 +18,6 @@ public class Speaker extends JSONObject {
     public String State;
     public List<String> Title;
 
-    public Speaker() {
-    }
 
     public Speaker(JSONObject object) {
         try {
@@ -29,11 +27,44 @@ public class Speaker extends JSONObject {
         }
     }
 
+    public String getAtendeeId() {
+        return AtendeeId;
+    }
+
+    public com.example.evansdar.primer1.Models.Attendee getAttendee() {
+        return Attendee;
+    }
+
+    public String getCity() {
+        return City;
+    }
+
+    public String getId() {
+        return Id;
+    }
+
+    public String getName() {
+        return this.Attendee.FirstName + " " + this.Attendee.LastName;
+    }
+
+    public String getState() {
+        return State;
+    }
+
+    public List<String> getTitle() {
+        return Title;
+    }
+
+    public String getEmail() {
+        return this.Attendee.getEmail();
+    }
+
     public Speaker FromJson(JSONObject object) throws JSONException {
 
         this.AtendeeId = (String) object.get("AtendeeId");
         this.Attendee = new Attendee((JSONObject) object.get("Attendee"));
         this.City = (String) object.get("City");
+
         this.Id = (String) object.get("Id");
         this.State = (String) object.get("State");
         this.Title = Arrays.asList(((String) object.get("Title")).split("\\s*,\\s*"));
